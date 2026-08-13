@@ -52,9 +52,32 @@ void main() {
         }
         break;
 
-      // case '3':
-      //   // Aprendiz 3: Buscar contacto por nombre
+      case '3':
+        // Aprendiz 3: Buscar contacto por nombre
+        if (agenda.isEmpty) {
+          print('La agenda está vacía.');
+          break;
+        }
+        stdout.write('Ingresa el nombre a buscar: ');
+        String? query = stdin.readLineSync();
 
+        if (query != null && query.trim().isNotEmpty) {
+          var resultados = agenda.where(
+            (c) => c.name.toLowerCase().contains(query.trim().toLowerCase())
+          ).toList();
+
+          if (resultados.isEmpty) {
+            print('No se encontraron contactos con ese nombre.');
+          } else {
+            print('\n--- Coincidencias encontradas ---');
+            for (var contacto in resultados) {
+              print('• ${contacto.name} - ${contacto.phone}');
+            }
+          }
+        } else {
+          print('Debes ingresar un nombre válido.');
+        }
+        break;
 
       case '4':
         // Aprendiz 3: Eliminar contacto por nombre
