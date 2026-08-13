@@ -40,8 +40,17 @@ void main() {
         }
         break;
 
-      // case '2':
-      //   // Aprendiz 2: Listar contactos
+      case '2':
+      // Aprendiz 2: Listar contactos
+             if (agenda.isEmpty) {
+          print('La agenda está vacía.');
+        } else {
+          print('\n--- Contactos Guardados ---');
+          for (int i = 0; i < agenda.length; i++) {
+            print('${i + 1}. Nombre: ${agenda[i].name} | Teléfono: ${agenda[i].phone}');
+          }
+        }
+        break;
 
       // case '3':
       //   // Aprendiz 3: Buscar contacto por nombre
